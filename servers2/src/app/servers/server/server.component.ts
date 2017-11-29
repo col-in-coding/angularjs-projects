@@ -16,6 +16,7 @@ export class ServerComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
+    // Convert to number
   	const id = +this.route.snapshot.params['id'];
     this.server = this.serversService.getServer(Number(id));
     this.route.params
@@ -27,7 +28,7 @@ export class ServerComponent implements OnInit {
   }
 
   onEdit() {
-    this.router.navigate(['edit'], {relativeTo: this.route});
+    this.router.navigate(['edit'], {relativeTo: this.route, queryParamsHandling: 'preserve'});
   }
 
 }
