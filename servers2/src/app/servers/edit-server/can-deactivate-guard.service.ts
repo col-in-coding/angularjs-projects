@@ -8,10 +8,11 @@ export interface CanComponentDeactivate {
 export class CanDeactivateGuard implements CanDeactivate<CanComponentDeactivate> {
 
   // will be called by angular router, once to leave a route
+  // inject component to the service
   canDeactivate(component: CanComponentDeactivate,
-		            currentRoute: ActivatedRouteSnapshot,
-		        		currentState: RouterStateSnapshot,
-		        		nextState?: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+		        currentRoute: ActivatedRouteSnapshot,
+		        currentState: RouterStateSnapshot,
+		        nextState?: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
 		return component.canDeactivate();
   }
 }
